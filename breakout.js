@@ -1,3 +1,13 @@
+// Author: Thomas Reeves
+// Course: Applied Javascript
+//
+//Problem:
+// 1. Gave the ball a randome location starting point
+// 2. Added a pause feature
+// 3. Added hard mode with faster ball and smaller paddle
+// 
+
+
 "use strict";
 
 (function () {
@@ -22,6 +32,8 @@
         leftPressed = false,
         isPaused = false,
         hardmode = document.getElementById("hardmode"),
+        pauseAlert = document.getElementById("pause"),
+        isntructions = document.getElementById("instructions"),
         dx = Math.floor((Math.random() * 10) - 3), // ball starts out randomly from -3 to 5
         dy = -6,
         paddleX = (canvas.width - paddleWidth) / 2,
@@ -30,12 +42,15 @@
         gameStart = false,
         hard = false;
 
+
+
     for (let c = 0; c < brickRowCount; c++) {
         bricks[c] = [];
         for (let r = 0; r < brickColumnCount; r++) {
             bricks[c][r] = { x: 0, y: 0, status: 1 };
         }
     }
+
 
 
     hardmode.addEventListener("click", hardMode, false);
@@ -46,13 +61,16 @@
 
     function mouseClickHandler(e) {
         if (!gameStart) {
+            hardmode.style.display = "none";
+            instructions.style.display = "none";
+            pauseAlert.style.display = "none";
             gameStart = true;
         }
         // if game is already started second click flips bool isPaused
         else if (gameStart) {
             isPaused = true;
             gameStart = false;
-            alert("game is paused click anywhere on page to resum")
+            pauseAlert.style.display = "block";
         }
     };
 
@@ -244,7 +262,6 @@
 
     };
     return draw();
-
 })();
 
 

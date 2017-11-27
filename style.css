@@ -18,6 +18,16 @@ button {
  
 }
 
+#instructions {
+    display:block;
+    float:left;
+}
+
+#pause {
+    display:none;
+}
+
+
 
 
 

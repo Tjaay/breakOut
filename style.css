@@ -1,1 +1,25 @@
-canvas { background: #eee; }
+#canvasContainer { 
+    text-align:center;
+    height:600px;
+    width:600px;
+    margin-top:100px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+canvas {
+    background: white; 
+    border-style: inset;
+}
+
+button {
+    margin-top:5px;
+ 
+}
+
+
+
+
+
+
